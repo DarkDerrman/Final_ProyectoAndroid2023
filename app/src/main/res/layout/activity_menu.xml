@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="50sp"
+            android:text="Menu Pricipal"
+            android:textAlignment="center"
+            android:layout_marginBottom="40dp"/>
+
+        <Button
+            android:id="@+id/btnRegistrarMascotas"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="30sp"
+            android:text="Registrar Mascotas"/>
+
+        <Button
+            android:id="@+id/btnMisMascotas"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="30sp"
+            android:text="Mis Mascotas"/>
+
+        <Button
+            android:id="@+id/btnBuscarMascotas"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="30sp"
+            android:text="Buscar Mascotas"/>
+
+    </LinearLayout>
+</RelativeLayout>
+
