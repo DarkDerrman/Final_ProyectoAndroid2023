@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 public class DataBaseUsuarios extends SQLiteOpenHelper {
     Context context;
     public DataBaseUsuarios(@Nullable Context context) {
-        super(context, "UsuariosDB", null, 1);
+        super(context, "UsuariosDBTemp", null, 1);
         this.context = context;
     }
 
@@ -21,6 +21,7 @@ public class DataBaseUsuarios extends SQLiteOpenHelper {
         String query = "CREATE TABLE Usuarios(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre TEXT," +
+                "telefono TEXT," +
                 "correo TEXT," +
                 "password TEXT);";
         db.execSQL(query);
@@ -29,6 +30,7 @@ public class DataBaseUsuarios extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS Usuarios");
+        onCreate(db);
     }
 
     public void agregarUsuario(ContentValues contentValues){
