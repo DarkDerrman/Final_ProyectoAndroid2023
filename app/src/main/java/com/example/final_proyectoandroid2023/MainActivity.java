@@ -48,11 +48,17 @@ public class MainActivity extends AppCompatActivity {
                     if(!password.isEmpty()){
                         datosUsuario = db.obtenerCorreoYContrasena(correo);
                         if(datosUsuario != null){
-                            if(password.equals(datosUsuario[1])){
-                                Intent intent = new Intent(MainActivity.this,MenuActivity.class);
-                                startActivity(intent);
+                            if(correo.equals(datosUsuario[0])){
+                                if(password.equals(datosUsuario[1])){
+                                    Intent intent = new Intent(MainActivity.this,SharedPreferentsActivity.class);
+                                    intent.putExtra("nombre",datosUsuario[2]);
+                                    intent.putExtra("correo",datosUsuario[0]);
+                                    startActivity(intent);
+                                }else{
+                                    Snackbar.make(v, "Contraseña no es correcta", Snackbar.LENGTH_LONG).show();
+                                }
                             }else{
-                                Snackbar.make(v, "Contraseña no es correcta", Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(v, "correo no es correcta", Snackbar.LENGTH_LONG).show();
                             }
                         }else{
                             Snackbar.make(v, "Usuario no registrado", Snackbar.LENGTH_LONG).show();

@@ -4,107 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroActivity">
+    tools:context=".SharedPreferentsActivity">
 
     <TextView
-        android:id="@+id/txtTituloRegistro"
+        android:id="@+id/txtTituloPreferencias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Registro"
+        android:layout_marginTop="96dp"
+        android:text="Preferencias"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/etNombre"
+        app:layout_constraintBottom_toTopOf="@+id/tvNombrePreferencias"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <EditText
-        android:id="@+id/etNombre"
+    <TextView
+        android:id="@+id/tvNombrePreferencias"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:ems="10"
-        android:hint="Nombre"
-        android:inputType="text"
-        android:textColorHint="@color/black"
+        android:layout_marginBottom="48dp"
+        android:text="Nonbre"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/etTelefono"
+        app:layout_constraintBottom_toTopOf="@+id/tvCorreoPreferencias"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCorreoPreferencias"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="Correo"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/etSeudonomioPreferencias"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/etTelefono"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:ems="10"
-        android:hint="Telefono"
-        android:inputType="text"
-        android:textColorHint="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/etCorreo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/etCorreo"
+        android:id="@+id/etSeudonomioPreferencias"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
         android:ems="10"
         android:textSize="20sp"
-        android:hint="Correo"
+        android:hint="Seudonomio"
         android:textColorHint="@color/black"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/etPassword"
+        app:layout_constraintBottom_toTopOf="@+id/etEdadPreferencias"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etEdadPreferencias"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="56dp"
         android:ems="10"
-        android:textSize="20sp"
-        android:hint="Contraseña"
-        android:textColorHint="@color/black"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/etPasswordRep"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/etPasswordRep"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        android:ems="10"
-        android:hint="Repetir contraseña"
+        android:hint="Edad"
         android:inputType="textPassword"
         android:textColorHint="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegistrarRegistro"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardarPreferencias"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnRegistrarRegistro"
+        android:id="@+id/btnGuardarPreferencias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:text="Registrar"
+        android:layout_marginBottom="120dp"
+        android:text="Guardar preferencias"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
