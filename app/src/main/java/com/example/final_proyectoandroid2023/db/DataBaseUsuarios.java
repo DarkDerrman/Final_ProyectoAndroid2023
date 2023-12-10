@@ -41,15 +41,16 @@ public class DataBaseUsuarios extends SQLiteOpenHelper {
 
     @SuppressLint("Range")
     public String[] obtenerCorreoYContrasena(String correo) {
-        // Obtener una instancia de la base de datos en modo de solo lectura
+        // Funcion modificada para obtener correo, contrasena y nombre.
+        // Obtener una instancia de la base de datos en modo de solo escritura
         //SQLiteDatabase db = this.getReadableDatabase();
         SQLiteDatabase db = this.getWritableDatabase();
 
         // Crear un array de String para almacenar el resultado (correo y contraseña)
-        String[] resultado = new String[2];
+        String[] resultado = new String[3];
 
         // Ejecutar una consulta en la base de datos
-        Cursor registros = db.query("Usuarios", new String[]{"correo", "password"}, "correo" + "=?",
+        Cursor registros = db.query("Usuarios", new String[]{"correo", "password", "nombre"}, "correo" + "=?",
                 new String[]{correo}, null, null, null, null);
 
         // Verificar si se encontraron resultados en Registros
@@ -60,6 +61,7 @@ public class DataBaseUsuarios extends SQLiteOpenHelper {
 
             resultado[0] = registros.getString(registros.getColumnIndex("correo")); // Correo
             resultado[1] = registros.getString(registros.getColumnIndex("password")); // Contraseña
+            resultado[2] = registros.getString(registros.getColumnIndex("nombre")); // Nombre
 
 
             // Cerrar el cursor para liberar recursos
