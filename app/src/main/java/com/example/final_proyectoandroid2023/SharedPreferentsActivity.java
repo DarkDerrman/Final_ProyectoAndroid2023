@@ -63,6 +63,8 @@ public class SharedPreferentsActivity extends AppCompatActivity {
                         // Iniciar la actividad MenuActivity
                         Intent intent = new Intent(SharedPreferentsActivity.this,MenuActivity.class);
                         startActivity(intent);
+                        etSeudonomio.setText("");
+                        etEdad.setText("");
                     }else{
                         Snackbar.make(v,"La edad no puede estar vacia",Snackbar.LENGTH_LONG);
                     }
