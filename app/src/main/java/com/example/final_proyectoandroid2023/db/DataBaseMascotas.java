@@ -1,5 +1,6 @@
 package com.example.final_proyectoandroid2023.db;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -52,6 +53,7 @@ public class DataBaseMascotas extends SQLiteOpenHelper {
     }
 
     public long agregarDueno(ContentValues contentValues){
+        // Devuelve el id_dueno
         SQLiteDatabase db = this.getWritableDatabase();
         long idDueno = db.insert("Duenos",null,contentValues);
         db.close();
@@ -65,8 +67,32 @@ public class DataBaseMascotas extends SQLiteOpenHelper {
         return idMascota;
     }
 
+    @SuppressLint("Range")
+    public long obtenerIdDuenoPorCorreo(String correo){
+        // Devuelve -2 si no hay Dueno y si hay devuelve el id_dueno
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        long idDueno = -2;
+
+        // Consulta la tabla Duenos
+        String query = "SELECT id_dueno FROM Duenos WHERE correo = ?";
+        Cursor registro = db.rawQuery(query, new String[]{correo});
+
+        // Verificar si se encontro el dueno
+        if(registro.moveToFirst()){
+            idDueno = registro.getInt(registro.getColumnIndex("id_dueno"));
+        }
+
+        // Cerrar el registro y la base de datos
+        registro.close();
+        db.close();
+
+        return idDueno;
+    }
+
     public ArrayList<Mascotas> obtenerMascotas(String especie){
         // especie puede ser "Perro" o "Gato"
+
         String queryPerros = "SELECT * FROM Mascotas WHERE especie = 'Perro'";
         String queryGatos = "SELECT * FROM Mascotas WHERE especie = 'Gato'";
         ArrayList<Mascotas> listaMascotas = new ArrayList<Mascotas>();
