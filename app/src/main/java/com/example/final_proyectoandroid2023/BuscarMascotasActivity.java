@@ -14,7 +14,7 @@ public class BuscarMascotasActivity extends AppCompatActivity {
     ArrayList<Mascotas> listaPerros;
     ArrayList<Mascotas> listaGatos;
 
-    RecyclerView listaMascotas;
+    RecyclerView rvlistaMascotas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,18 +22,18 @@ public class BuscarMascotasActivity extends AppCompatActivity {
 
         DataBaseMascotas db_mascotas = new DataBaseMascotas(BuscarMascotasActivity.this);
 
-        listaPerros = db_mascotas.obtenerMascotas("Perro");
-        listaGatos = db_mascotas.obtenerMascotas("Gato");
+        ArrayList<Mascotas> listaMascotas = db_mascotas.obtenerMascotas();
 
-        listaMascotas = (RecyclerView) findViewById(R.id.listBuscarM);
+        rvlistaMascotas = (RecyclerView) findViewById(R.id.listBuscarM);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-        listaMascotas.setLayoutManager(llm);
+        rvlistaMascotas.setLayoutManager(llm);
+        startAdaptador();
 
     }
 
     public void startAdaptador(){
-        MascotasAdapter adaptador = new MascotasAdapter(listaPerros);
-        listaMascotas.setAdapter(adaptador);
+        MascotasAdapter adaptador = new MascotasAdapter(listaMascotas);
+        rvlistaMascotas.setAdapter(adaptador);
     }
 }
