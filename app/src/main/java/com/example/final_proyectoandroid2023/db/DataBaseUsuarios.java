@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 public class DataBaseUsuarios extends SQLiteOpenHelper {
     Context context;
     public DataBaseUsuarios(@Nullable Context context) {
-        super(context, "UsuariosDBTemp", null, 1);
+        super(context, "UsuariosDBTempDos", null, 1);
         this.context = context;
     }
 
@@ -93,9 +93,9 @@ public class DataBaseUsuarios extends SQLiteOpenHelper {
             //resultado[0] = registros.getString(2).toString(); // Correo
             //resultado[1] = registros.getString(3).toString(); // Contraseña
 
-            resultado[0] = registros.getString(registros.getColumnIndex("nombre")); // Correo
-            resultado[1] = registros.getString(registros.getColumnIndex("correo")); // Contraseña
-            resultado[2] = registros.getString(registros.getColumnIndex("telefono")); // Nombre
+            resultado[0] = registros.getString(registros.getColumnIndex("nombre")); // Nombre
+            resultado[1] = registros.getString(registros.getColumnIndex("correo")); // Correo
+            resultado[2] = registros.getString(registros.getColumnIndex("telefono")); // Telefono
 
             // Cerrar el cursor para liberar recursos
             registros.close();

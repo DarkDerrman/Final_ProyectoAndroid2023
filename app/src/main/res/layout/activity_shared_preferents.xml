@@ -66,7 +66,7 @@
         android:layout_marginBottom="56dp"
         android:ems="10"
         android:hint="Edad"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:textColorHint="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/btnGuardarPreferencias"

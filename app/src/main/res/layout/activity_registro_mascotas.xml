@@ -42,44 +42,6 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/tvFotoMascota"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Foto de mascota"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"/>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cvFoto"
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:gravity="center">
-
-                            <ImageView
-                                android:id="@+id/ivFoto"
-                                android:layout_width="300dp"
-                                android:layout_height="200dp" />
-
-                            <Button
-                                android:id="@+id/btnBorrarFoto"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Borrar foto"
-                                android:textSize="20sp"
-                                android:layout_marginTop="10dp"/>
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
                         android:id="@+id/tvNombreMascota"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -152,6 +114,25 @@
                     </RadioGroup>
 
                     <TextView
+                        android:id="@+id/tvRazaMascota"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Raza"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"/>
+
+                    <EditText
+                        android:id="@+id/etRazaMascota"
+                        android:layout_width="370dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Raza"
+                        android:textSize="20sp"
+                        android:textColorHint="@color/black"
+                        android:layout_marginLeft="20dp"/>
+
+                    <TextView
                         android:id="@+id/tvEdadMascota"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -172,7 +153,7 @@
                             android:id="@+id/rbMenosSeisMeses"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Menor 6 meses"
+                            android:text="Menor a 6 meses"
                             android:textSize="20sp"/>
 
                         <RadioButton
@@ -190,7 +171,7 @@
                             android:textSize="20sp"/>
 
                         <RadioButton
-                            android:id="@+id/rbMasCinco"
+                            android:id="@+id/rbMasCincoAnno"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="+ 5"
