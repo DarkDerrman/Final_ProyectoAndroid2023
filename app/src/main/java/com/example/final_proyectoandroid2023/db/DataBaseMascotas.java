@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class DataBaseMascotas extends SQLiteOpenHelper {
     Context context;
     public DataBaseMascotas(@Nullable Context context) {
-        super(context, "MascotasDBTempDos", null, 1);
+        super(context, "MascotasDBTempTres", null, 1);
         this.context = context;
     }
 
@@ -91,20 +91,16 @@ public class DataBaseMascotas extends SQLiteOpenHelper {
         return idDueno;
     }
 
-    public ArrayList<Mascotas> obtenerMascotas(String especie){
-        // especie puede ser "Perro" o "Gato"
+    public ArrayList<Mascotas> obtenerMascotas(){
+        // devuelve todas las mascotas
 
-        String queryPerros = "SELECT * FROM Mascotas WHERE especie = 'Perro'";
-        String queryGatos = "SELECT * FROM Mascotas WHERE especie = 'Gato'";
+        String query = "SELECT * FROM Mascotas";
         ArrayList<Mascotas> listaMascotas = new ArrayList<Mascotas>();
         SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor registros;
-        if(especie.equals("Perro")){
-            registros = db.rawQuery(queryPerros,null);
-        }else{
-            registros = db.rawQuery(queryGatos,null);
-        }
+        registros = db.rawQuery(query,null);
+
         while (registros.moveToNext()){
             Mascotas mascotaTemp = new Mascotas();
             mascotaTemp.setIdMascota(registros.getInt(0));
