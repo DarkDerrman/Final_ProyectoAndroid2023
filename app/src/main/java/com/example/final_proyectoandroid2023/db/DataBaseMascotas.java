@@ -32,9 +32,9 @@ public class DataBaseMascotas extends SQLiteOpenHelper {
                 "id_mascota INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "id_dueno INTEGER," +
                 "nombre_mascota TEXT," +
-                "ruta_foto TEXT," +
-                "descripcion TEXT," +
                 "especie TEXT," +
+                "raza TEXT," +
+                "descripcion TEXT," +
                 "edad TEXT," +
                 "tamano TEXT," +
                 "vacuna_dia VARCHAR(2)," +
