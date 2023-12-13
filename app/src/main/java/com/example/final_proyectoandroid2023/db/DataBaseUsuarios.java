@@ -79,7 +79,7 @@ public class DataBaseUsuarios extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
-    public String[] obtenerUsuario(String correo){
+    public String[] obtenerUsuarioPorCorreo(String correo){
         // Obtiene los datos del usuario al que le corresponde el correo
         SQLiteDatabase db = this.getWritableDatabase();
 
