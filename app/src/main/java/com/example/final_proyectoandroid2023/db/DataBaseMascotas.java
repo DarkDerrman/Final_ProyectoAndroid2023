@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class DataBaseMascotas extends SQLiteOpenHelper {
     Context context;
     public DataBaseMascotas(@Nullable Context context) {
-        super(context, "MascotasDB", null, 1);
+        super(context, "MascotasDBTempDos", null, 1);
         this.context = context;
     }
 
@@ -24,7 +24,7 @@ public class DataBaseMascotas extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String queryDuenos = "CREATE TABLE Duenos(" +
                 "id_dueno INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nombre_dueno TEXT," +
+                "nombre TEXT," +
                 "correo TEXT," +
                 "telefono TEXT);";
 
@@ -32,10 +32,11 @@ public class DataBaseMascotas extends SQLiteOpenHelper {
                 "id_mascota INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "id_dueno INTEGER," +
                 "nombre_mascota TEXT," +
-                "ruta_foto TEXT," +
                 "descripcion TEXT," +
                 "especie TEXT," +
+                "raza TEXT," +
                 "edad TEXT," +
+                "sexo TEXT," +
                 "tamano TEXT," +
                 "vacuna_dia VARCHAR(2)," +
                 "sano VARCHAR(2)," +
@@ -109,13 +110,14 @@ public class DataBaseMascotas extends SQLiteOpenHelper {
             mascotaTemp.setIdMascota(registros.getInt(0));
             mascotaTemp.setIdDueno(registros.getInt(1));
             mascotaTemp.setNombreMascota(registros.getString(2));
-            mascotaTemp.setRutaFoto(registros.getString(3));
-            mascotaTemp.setDescripcion(registros.getString(4));
-            mascotaTemp.setEspecie(registros.getString(5));
+            mascotaTemp.setDescripcion(registros.getString(3));
+            mascotaTemp.setEspecie(registros.getString(4));
+            mascotaTemp.setRaza(registros.getString(5));
             mascotaTemp.setEdad(registros.getString(6));
-            mascotaTemp.setTamano(registros.getString(7));
-            mascotaTemp.setVacunaDia(registros.getString(8));
-            mascotaTemp.setSano(registros.getString(9));
+            mascotaTemp.setSexo(registros.getString(7));
+            mascotaTemp.setTamano(registros.getString(8));
+            mascotaTemp.setVacunaDia(registros.getString(9));
+            mascotaTemp.setSano(registros.getString(10));
             listaMascotas.add(mascotaTemp);
         }
         registros.close();

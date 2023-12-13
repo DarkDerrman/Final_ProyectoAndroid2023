@@ -4,17 +4,18 @@ import java.io.Serializable;
 
 public class Mascotas implements Serializable {
     private int idMascota,idDueno;
-    private String nombreMascota,rutaFoto,descripcion,especie,edad,tamano,vacunaDia,sano;
+    private String nombreMascota,descripcion,especie,raza,edad,sexo,tamano,vacunaDia,sano;
 
     public Mascotas(){
     }
 
-    public Mascotas(String nombreMascota, String rutaFoto, String descripcion, String especie, String edad, String tamano, String vacunaDia, String sano) {
+    public Mascotas(String nombreMascota, String descripcion, String especie, String raza, String edad, String sexo, String tamano, String vacunaDia, String sano) {
         this.nombreMascota = nombreMascota;
-        this.rutaFoto = rutaFoto;
         this.descripcion = descripcion;
         this.especie = especie;
+        this.raza = raza;
         this.edad = edad;
+        this.sexo = sexo;
         this.tamano = tamano;
         this.vacunaDia = vacunaDia;
         this.sano = sano;
@@ -32,10 +33,6 @@ public class Mascotas implements Serializable {
         return nombreMascota;
     }
 
-    public String getRutaFoto() {
-        return rutaFoto;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -44,8 +41,16 @@ public class Mascotas implements Serializable {
         return especie;
     }
 
+    public String getRaza() {
+        return raza;
+    }
+
     public String getEdad() {
         return edad;
+    }
+
+    public String getSexo() {
+        return sexo;
     }
 
     public String getTamano() {
@@ -72,10 +77,6 @@ public class Mascotas implements Serializable {
         this.nombreMascota = nombreMascota;
     }
 
-    public void setRutaFoto(String rutaFoto) {
-        this.rutaFoto = rutaFoto;
-    }
-
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
@@ -84,8 +85,16 @@ public class Mascotas implements Serializable {
         this.especie = especie;
     }
 
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
     public void setEdad(String edad) {
         this.edad = edad;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public void setTamano(String tamano) {

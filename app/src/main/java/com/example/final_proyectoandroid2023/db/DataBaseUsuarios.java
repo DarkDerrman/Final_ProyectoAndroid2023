@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 public class DataBaseUsuarios extends SQLiteOpenHelper {
     Context context;
     public DataBaseUsuarios(@Nullable Context context) {
-        super(context, "UsuariosDBTemp", null, 1);
+        super(context, "UsuariosDBTempDos", null, 1);
         this.context = context;
     }
 
@@ -63,6 +63,39 @@ public class DataBaseUsuarios extends SQLiteOpenHelper {
             resultado[1] = registros.getString(registros.getColumnIndex("password")); // Contraseña
             resultado[2] = registros.getString(registros.getColumnIndex("nombre")); // Nombre
 
+
+            // Cerrar el cursor para liberar recursos
+            registros.close();
+        } else {
+            // Si no se encontraron resultados, establecer el resultado como null
+            resultado = null;
+        }
+
+        // Cerrar la conexion a la base de datos
+        db.close();
+
+        // Devolver el resultado (puede ser null si no se encontraron resultados)
+        return resultado;
+    }
+
+    @SuppressLint("Range")
+    public String[] obtenerUsuarioPorCorreo(String correo){
+        // Obtiene los datos del usuario al que le corresponde el correo
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String[] resultado = new String[3];
+
+        Cursor registros = db.query("Usuarios", new String[]{"nombre", "telefono", "correo"}, "correo" + "=?",
+                new String[]{correo}, null, null, null, null);
+
+        if (registros != null && registros.moveToFirst()) {
+            // Si hay resultados, obtener el nombre, telefono y el correo del usuario
+            //resultado[0] = registros.getString(2).toString(); // Correo
+            //resultado[1] = registros.getString(3).toString(); // Contraseña
+
+            resultado[0] = registros.getString(registros.getColumnIndex("nombre")); // Nombre
+            resultado[1] = registros.getString(registros.getColumnIndex("correo")); // Correo
+            resultado[2] = registros.getString(registros.getColumnIndex("telefono")); // Telefono
 
             // Cerrar el cursor para liberar recursos
             registros.close();

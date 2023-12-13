@@ -23,8 +23,25 @@ public class MenuActivity extends AppCompatActivity {
 
         tvNombreMenu.setText(nombre);
 
+        Button btnRegistrar = (Button) findViewById(R.id.btnRegistrarMascotas);
+        Button btnMisMascotas = (Button) findViewById(R.id.btnMisMascotas);
         Button btnBuscar = (Button) findViewById(R.id.btnBuscarMascotas);
 
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, RegistroMascotasActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnMisMascotas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, MisMascotasActivity.class);
+                startActivity(intent);
+            }
+        });
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,5 +49,6 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }
