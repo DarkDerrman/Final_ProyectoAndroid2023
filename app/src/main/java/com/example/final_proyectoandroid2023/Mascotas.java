@@ -9,7 +9,7 @@ public class Mascotas implements Serializable {
     public Mascotas(){
     }
 
-    public Mascotas(String nombreMascota, String descripcion, String especie, String raza, String edad, String sexo, String tamano, String vacunaDia, String sano) {
+    /*public Mascotas(String nombreMascota, String descripcion, String especie, String raza, String edad, String sexo, String tamano, String vacunaDia, String sano) {
         this.nombreMascota = nombreMascota;
         this.descripcion = descripcion;
         this.especie = especie;
@@ -19,6 +19,12 @@ public class Mascotas implements Serializable {
         this.tamano = tamano;
         this.vacunaDia = vacunaDia;
         this.sano = sano;
+    }*/
+
+    public Mascotas(String nombreMascota, String especie, String tamano){
+        this.nombreMascota = nombreMascota;
+        this.especie = especie;
+        this.tamano = tamano;
     }
 
     public int getIdMascota() {
