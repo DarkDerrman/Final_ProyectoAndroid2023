@@ -33,7 +33,7 @@ public class BuscarMascotasActivity extends AppCompatActivity {
     }
 
     public void startAdaptador(){
-        MascotasAdapter adaptador = new MascotasAdapter(listaMascotas);
-        rvlistaMascotas.setAdapter(adaptador);
+        //MascotasAdapter adaptador = new MascotasAdapter(listaMascotas);
+        //rvlistaMascotas.setAdapter(adaptador);
     }
 }
