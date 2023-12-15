@@ -16,9 +16,6 @@
             android:name=".DetallesMascotaActivity"
             android:exported="false" />
         <activity
-            android:name=".DetallesBuscarMascotaActivity"
-            android:exported="false" />
-        <activity
             android:name=".BuscarMascotasActivity"
             android:exported="false" />
         <activity
