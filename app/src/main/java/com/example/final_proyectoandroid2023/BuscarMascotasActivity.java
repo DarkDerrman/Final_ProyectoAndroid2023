@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.final_proyectoandroid2023.db.DataBaseMascotas;
@@ -27,12 +28,18 @@ public class BuscarMascotasActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         rvlistaMascotas.setLayoutManager(llm);
-        startAdaptador();
 
-    }
-
-    public void startAdaptador(){
-        MascotasAdapter adaptador = new MascotasAdapter(mascotas);
+        MascotasAdapter adaptador = new MascotasAdapter(mascotas, this);
         rvlistaMascotas.setAdapter(adaptador);
+
+        adaptador.setOnItemClickListener(new MascotasAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(BuscarMascotasActivity.this, DetallesMascotaActivity.class);
+                intent.putExtra("mascota", position);
+                startActivity(intent);
+            }
+        });
     }
+
 }

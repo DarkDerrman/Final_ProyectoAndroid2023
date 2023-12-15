@@ -134,17 +134,17 @@ public class DataBaseMascotas extends SQLiteOpenHelper {
 
         while (registros.moveToNext()){
             Mascotas mascotaTemp = new Mascotas();
-            //mascotaTemp.setIdMascota(registros.getInt(0));
-            //mascotaTemp.setIdDueno(registros.getInt(1));
+            mascotaTemp.setIdMascota(registros.getInt(0));
+            mascotaTemp.setIdDueno(registros.getInt(1));
             mascotaTemp.setNombreMascota(registros.getString(2));
-            //mascotaTemp.setDescripcion(registros.getString(3));
+            mascotaTemp.setDescripcion(registros.getString(3));
             mascotaTemp.setEspecie(registros.getString(4));
-            //mascotaTemp.setRaza(registros.getString(5));
-            //mascotaTemp.setEdad(registros.getString(6));
-            //ascotaTemp.setSexo(registros.getString(7));
+            mascotaTemp.setRaza(registros.getString(5));
+            mascotaTemp.setEdad(registros.getString(6));
+            mascotaTemp.setSexo(registros.getString(7));
             mascotaTemp.setTamano(registros.getString(8));
-            //mascotaTemp.setVacunaDia(registros.getString(9));
-            //mascotaTemp.setSano(registros.getString(10));
+            mascotaTemp.setVacunaDia(registros.getString(9));
+            mascotaTemp.setSano(registros.getString(10));
             listaMascotas.add(mascotaTemp);
         }
         registros.close();

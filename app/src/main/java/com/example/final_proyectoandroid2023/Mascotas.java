@@ -1,6 +1,7 @@
 package com.example.final_proyectoandroid2023;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Mascotas implements Serializable {
     private int idMascota,idDueno;
@@ -9,7 +10,7 @@ public class Mascotas implements Serializable {
     public Mascotas(){
     }
 
-    /*public Mascotas(String nombreMascota, String descripcion, String especie, String raza, String edad, String sexo, String tamano, String vacunaDia, String sano) {
+    public Mascotas(String nombreMascota, String descripcion, String especie, String raza, String edad, String sexo, String tamano, String vacunaDia, String sano) {
         this.nombreMascota = nombreMascota;
         this.descripcion = descripcion;
         this.especie = especie;
@@ -19,13 +20,13 @@ public class Mascotas implements Serializable {
         this.tamano = tamano;
         this.vacunaDia = vacunaDia;
         this.sano = sano;
-    }*/
-
+    }
+    /*
     public Mascotas(String nombreMascota, String especie, String tamano){
         this.nombreMascota = nombreMascota;
         this.especie = especie;
         this.tamano = tamano;
-    }
+    }*/
 
     public int getIdMascota() {
         return idMascota;
@@ -114,4 +115,5 @@ public class Mascotas implements Serializable {
     public void setSano(String sano) {
         this.sano = sano;
     }
+
 }
