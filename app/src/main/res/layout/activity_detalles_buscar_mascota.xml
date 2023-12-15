@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetallesMascotaActivity">
+    tools:context=".DetallesBuscarMascotaActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tvDetallesMascotas"
+                android:id="@+id/tvDetallesMascotasBuscar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -42,7 +42,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/tvNombreDetalle"
+                android:id="@+id/tvNombreDetalleBuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre"
@@ -67,7 +67,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/tvDescripcionDetalle"
+                android:id="@+id/tvDescripcionDetalleBuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Descripcion"
@@ -91,7 +91,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/tvEspecieDetalle"
+                android:id="@+id/tvEspecieDetalleBuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Especie"
@@ -116,7 +116,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/tvRazaDetalle"
+                android:id="@+id/tvRazaDetalleBuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Raza"
@@ -141,7 +141,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/tvEdadDetalle"
+                android:id="@+id/tvEdadDetalleBuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Edad"
@@ -165,7 +165,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/tvSexoDetalle"
+                android:id="@+id/tvSexoDetalleBuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sexo"
@@ -189,7 +189,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/tvTamanoDetalle"
+                android:id="@+id/tvTamanoDetalleBuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tamano"
@@ -213,7 +213,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/tvVacunaDiaDetalle"
+                android:id="@+id/tvVacunaDiaDetalleBuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="vacuna al dia"
@@ -237,12 +237,29 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/tvSanoDetalle"
+                android:id="@+id/tvSanoDetalleBuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sano"
                 android:textSize="20sp"
                 android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnContactoDueno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contacto dueño"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

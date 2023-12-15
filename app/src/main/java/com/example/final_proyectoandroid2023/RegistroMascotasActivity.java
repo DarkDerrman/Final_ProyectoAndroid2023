@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -67,6 +69,27 @@ public class RegistroMascotasActivity extends AppCompatActivity {
         rbNoSano = (RadioButton) findViewById(R.id.rbNoSano);
 
         btnGuardarMascota = (Button) findViewById(R.id.btnGuardarMascota);
+
+        // Aplicar filtro para limitar a 3 líneas
+        /////// etDescripcionMascota.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getMaxCharacters())});
+
+        // Añadir un TextWatcher para truncar texto adicional si excede las 3 líneas
+        etDescripcionMascota.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                truncateTextToMaxLines(s);
+            }
+        });
 
         btnGuardarMascota.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,7 +186,7 @@ public class RegistroMascotasActivity extends AppCompatActivity {
                                                     contentValuesMascota.put("sano",sano);
 
                                                     dbmascotas.agregarMascota(contentValuesMascota,idDueno);
-                                                    Snackbar.make(v,"Mascota ingresada",Snackbar.LENGTH_LONG);
+                                                    Snackbar.make(v,"Mascota ingresada",Snackbar.LENGTH_LONG).show();
                                                     etNombreMascota.setText("");
                                                     etDescripcionMascota.setText("");
                                                     etRaza.setText("");
@@ -214,6 +237,16 @@ public class RegistroMascotasActivity extends AppCompatActivity {
             if (view instanceof RadioButton) {
                 ((RadioButton) view).setChecked(false);
             }
+        }
+    }
+
+    // Método para truncar el texto a un número específico de líneas
+    private void truncateTextToMaxLines(Editable editable) {
+        int maxLines = 3;
+        int lineCount = etDescripcionMascota.getLayout().getLineCount();
+        if (lineCount > maxLines) {
+            int lastLineStart = etDescripcionMascota.getLayout().getLineStart(maxLines);
+            editable.delete(lastLineStart, editable.length());
         }
     }
 }

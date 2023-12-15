@@ -39,7 +39,7 @@ public class MascotasAdapter extends RecyclerView.Adapter<MascotasAdapter.Mascot
             @Override
             public void onClick(View v) {
                 Toast.makeText(activity, mascota.getNombreMascota(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(activity, DetallesMascotaActivity.class);
+                Intent intent = new Intent(activity, DetallesBuscarMascotaActivity.class);
                 intent.putExtra("mascota", mascota);
                 activity.startActivity(intent);
             }

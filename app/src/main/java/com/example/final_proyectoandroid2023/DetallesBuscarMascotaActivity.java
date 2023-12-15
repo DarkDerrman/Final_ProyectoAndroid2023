@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class DetallesMascotaActivity extends AppCompatActivity {
-
+public class DetallesBuscarMascotaActivity extends AppCompatActivity {
     TextView tvNombre;
     TextView tvDesc;
     TextView tvEspecie;
@@ -19,21 +18,22 @@ public class DetallesMascotaActivity extends AppCompatActivity {
     TextView tvTamano;
     TextView tvVacuna;
     TextView tvSalud;
-
+    Button btnContactoDueno;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalles_mascota);
+        setContentView(R.layout.activity_detalles_buscar_mascota);
 
-        tvNombre = (TextView) findViewById(R.id.tvNombreDetalle);
-        tvDesc = (TextView) findViewById(R.id.tvDescripcionDetalle);
-        tvEspecie = (TextView) findViewById(R.id.tvEspecieDetalle);
-        tvRaza = (TextView) findViewById(R.id.tvRazaDetalle);
-        tvEdad = (TextView) findViewById(R.id.tvEdadDetalle);
-        tvSexo = (TextView) findViewById(R.id.tvSexoDetalle);
-        tvTamano = (TextView) findViewById(R.id.tvTamanoDetalle);
-        tvVacuna = (TextView) findViewById(R.id.tvVacunaDiaDetalle);
-        tvSalud = (TextView) findViewById(R.id.tvSanoDetalle);
+        tvNombre = (TextView) findViewById(R.id.tvNombreDetalleBuscar);
+        tvDesc = (TextView) findViewById(R.id.tvDescripcionDetalleBuscar);
+        tvEspecie = (TextView) findViewById(R.id.tvEspecieDetalleBuscar);
+        tvRaza = (TextView) findViewById(R.id.tvRazaDetalleBuscar);
+        tvEdad = (TextView) findViewById(R.id.tvEdadDetalleBuscar);
+        tvSexo = (TextView) findViewById(R.id.tvSexoDetalleBuscar);
+        tvTamano = (TextView) findViewById(R.id.tvTamanoDetalleBuscar);
+        tvVacuna = (TextView) findViewById(R.id.tvVacunaDiaDetalleBuscar);
+        tvSalud = (TextView) findViewById(R.id.tvSanoDetalleBuscar);
+        btnContactoDueno = (Button) findViewById(R.id.btnContactoDueno);
 
         Intent intent = getIntent();
         if (intent != null){
@@ -51,14 +51,4 @@ public class DetallesMascotaActivity extends AppCompatActivity {
             }
         }
     }
-
-    /*
-    private Object setVisible(int invisible) {
-        Object resultado = false;
-        if(invisible == 4){
-
-        }
-    }
-
-     */
 }

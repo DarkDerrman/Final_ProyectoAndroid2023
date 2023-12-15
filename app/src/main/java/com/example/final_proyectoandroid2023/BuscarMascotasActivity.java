@@ -35,7 +35,7 @@ public class BuscarMascotasActivity extends AppCompatActivity {
         adaptador.setOnItemClickListener(new MascotasAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Intent intent = new Intent(BuscarMascotasActivity.this, DetallesMascotaActivity.class);
+                Intent intent = new Intent(BuscarMascotasActivity.this, DetallesBuscarMascotaActivity.class);
                 intent.putExtra("mascota", position);
                 startActivity(intent);
             }
