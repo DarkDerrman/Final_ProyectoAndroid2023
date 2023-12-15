@@ -11,20 +11,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MascotasAdapter extends RecyclerView.Adapter<MascotasAdapter.MascotasViewHolder> {
-    private ArrayList<Mascotas> obtenerMascotas;
-    public MascotasAdapter(ArrayList<Mascotas> obtenerMascotas){
-        this.obtenerMascotas = obtenerMascotas;
+    private ArrayList<Mascotas> mascotas;
+    public MascotasAdapter(ArrayList<Mascotas> mascotas){
+        this.mascotas = mascotas;
     }
+
     @NonNull
     @Override
     public MascotasViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_mascotas, parent, false);
-        return new MascotasViewHolder(view);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_mascotas, parent, false);
+        return new MascotasViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MascotasViewHolder mascotasViewHolder, int position) {
-        Mascotas mascota = obtenerMascotas.get(position);
+        Mascotas mascota = mascotas.get(position);
         mascotasViewHolder.cvNombre.setText(mascota.getNombreMascota());
         mascotasViewHolder.cvEspecie.setText(mascota.getEspecie());
         mascotasViewHolder.cvTamano.setText(mascota.getTamano());
@@ -32,7 +33,7 @@ public class MascotasAdapter extends RecyclerView.Adapter<MascotasAdapter.Mascot
 
     @Override
     public int getItemCount() {
-        return obtenerMascotas.size();
+        return mascotas.size();
     }
 
     public static class MascotasViewHolder extends RecyclerView.ViewHolder {

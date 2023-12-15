@@ -11,20 +11,19 @@ import com.example.final_proyectoandroid2023.db.DataBaseMascotas;
 import java.util.ArrayList;
 
 public class BuscarMascotasActivity extends AppCompatActivity {
-    ArrayList<Mascotas> listaPerros;
-    ArrayList<Mascotas> listaGatos;
-
+    ArrayList<Mascotas> mascotas;
     RecyclerView rvlistaMascotas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_mascotas);
 
-        DataBaseMascotas db_mascotas = new DataBaseMascotas(BuscarMascotasActivity.this);
+        DataBaseMascotas db = new DataBaseMascotas(BuscarMascotasActivity.this);
 
-        ArrayList<Mascotas> listaMascotas = db_mascotas.obtenerMascotas();
+        mascotas = db.obtenerMascotas();
+        rvlistaMascotas = findViewById(R.id.rvBuscarM);
 
-        rvlistaMascotas = (RecyclerView) findViewById(R.id.listBuscarM);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         rvlistaMascotas.setLayoutManager(llm);
@@ -33,7 +32,7 @@ public class BuscarMascotasActivity extends AppCompatActivity {
     }
 
     public void startAdaptador(){
-        //MascotasAdapter adaptador = new MascotasAdapter(listaMascotas);
-        //rvlistaMascotas.setAdapter(adaptador);
+        MascotasAdapter adaptador = new MascotasAdapter(mascotas);
+        rvlistaMascotas.setAdapter(adaptador);
     }
 }

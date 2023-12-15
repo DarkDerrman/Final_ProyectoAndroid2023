@@ -6,27 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".BuscarMascotasActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listBuscarM"
-        android:layout_width="411dp"
-        android:layout_height="600dp"
-        android:layout_marginTop="120dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <TextView
         android:id="@+id/txtBuscarM"
         android:layout_width="388dp"
         android:layout_height="99dp"
+        android:layout_marginTop="16dp"
         android:text="Buscar Mascotas"
         android:textAlignment="center"
         android:textSize="45sp"
-        app:layout_constraintBottom_toTopOf="@+id/listBuscarM"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBuscarM"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_below="@+id/txtBuscarM"
+        android:paddingTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBuscarM"
+        app:layout_constraintVertical_bias="0.125"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
