@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class DataBaseMascotas extends SQLiteOpenHelper {
     Context context;
     public DataBaseMascotas(@Nullable Context context) {
-        super(context, "MascotasDBTempCuatro", null, 1);
+        super(context, "MascotasDBTempCinco", null, 1);
         this.context = context;
     }
 
@@ -89,6 +89,30 @@ public class DataBaseMascotas extends SQLiteOpenHelper {
         db.close();
 
         return idDueno;
+    }
+
+    @SuppressLint("Range")
+    public String[] obtenerDuenoPorId(long idDueno){
+        // Devuelve los datos de contacto del dueno de la mascota, por su id_dueno
+
+        String query = "SELECT * FROM Duenos WHERE id_dueno = ?";
+        String[] resultado = new String[3];
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor registro;
+        String[] argumentos = {String.valueOf(idDueno)};
+        registro = db.rawQuery(query,argumentos);
+
+        if(registro.moveToFirst()){
+            resultado[0] = registro.getString(registro.getColumnIndex("nombre")); // Nombre
+            resultado[1] = registro.getString(registro.getColumnIndex("correo")); // Correo
+            resultado[2] = registro.getString(registro.getColumnIndex("telefono")); // Telefono
+            registro.close();
+        }
+
+        db.close();
+
+        return resultado;
     }
 
     public ArrayList<Mascotas> obtenerMascotasDelDueno(long idDueno){

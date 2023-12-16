@@ -19,6 +19,7 @@ public class DetallesBuscarMascotaActivity extends AppCompatActivity {
     TextView tvVacuna;
     TextView tvSalud;
     Button btnContactoDueno;
+    long idDueno;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,17 @@ public class DetallesBuscarMascotaActivity extends AppCompatActivity {
                 tvTamano.setText(mascota.getTamano());
                 tvVacuna.setText(mascota.getVacunaDia());
                 tvSalud.setText(mascota.getSano());
+                idDueno = mascota.getIdDueno();
             }
         }
+
+        btnContactoDueno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetallesBuscarMascotaActivity.this,ContactoDuenoActivity.class);
+                intent.putExtra("idDueno",idDueno);
+                startActivity(intent);
+            }
+        });
     }
 }
