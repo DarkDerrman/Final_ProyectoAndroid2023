@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MascotasAdapter extends RecyclerView.Adapter<MascotasAdapter.MascotasViewHolder> {
-    private ArrayList<Mascotas> mascotas;
-    private Activity activity;
+    private final ArrayList<Mascotas> mascotas;
+    private final Activity activity;
     public MascotasAdapter(ArrayList<Mascotas> mascotas, Activity activity){
         this.mascotas = mascotas;
         this.activity = activity;
@@ -33,6 +33,7 @@ public class MascotasAdapter extends RecyclerView.Adapter<MascotasAdapter.Mascot
         Mascotas mascota = mascotas.get(position);
         mascotasViewHolder.cvNombre.setText(mascota.getNombreMascota());
         mascotasViewHolder.cvEspecie.setText(mascota.getEspecie());
+        mascotasViewHolder.cvRaza.setText(mascota.getRaza());
         mascotasViewHolder.cvTamano.setText(mascota.getTamano());
 
         mascotasViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -54,12 +55,14 @@ public class MascotasAdapter extends RecyclerView.Adapter<MascotasAdapter.Mascot
     public static class MascotasViewHolder extends RecyclerView.ViewHolder {
         TextView cvNombre;
         TextView cvEspecie;
+        TextView cvRaza;
         TextView cvTamano;
 
         public MascotasViewHolder(@NonNull View itemView) {
             super(itemView);
             this.cvNombre = itemView.findViewById(R.id.cvNombre);
             this.cvEspecie = itemView.findViewById(R.id.cvEspecie);
+            this.cvRaza = itemView.findViewById(R.id.cvRaza);
             this.cvTamano = itemView.findViewById(R.id.cvTamano);
         }
     }
