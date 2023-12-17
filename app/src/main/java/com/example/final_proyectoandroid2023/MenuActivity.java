@@ -21,7 +21,9 @@ public class MenuActivity extends AppCompatActivity {
         SharedPreferences myShared = getSharedPreferences("misDatos",MODE_PRIVATE);
         String nombre = myShared.getString("nombre","No se encontro nombre");
 
-        tvNombreMenu.setText(nombre);
+        String nombreS = "(" + nombre + ")";
+
+        tvNombreMenu.setText(nombreS);
 
         Button btnRegistrar = (Button) findViewById(R.id.btnRegistrarMascotas);
         Button btnMisMascotas = (Button) findViewById(R.id.btnMisMascotas);

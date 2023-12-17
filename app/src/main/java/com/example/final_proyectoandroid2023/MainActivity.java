@@ -1,7 +1,6 @@
 package com.example.final_proyectoandroid2023;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.WindowDecorActionBar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +12,8 @@ import com.example.final_proyectoandroid2023.db.DataBaseUsuarios;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
-
+    EditText etCorreo, etPassword;
+    Button btnRegistrar, btnAcceder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Button btnRegistrar = (Button) findViewById(R.id.btnRegistrarMain);
-        Button btnAcceder = (Button) findViewById(R.id.btnAcceder);
+        btnRegistrar = (Button) findViewById(R.id.btnRegistrarMain);
+        btnAcceder = (Button) findViewById(R.id.btnAcceder);
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,52 +37,47 @@ public class MainActivity extends AppCompatActivity {
                 DataBaseUsuarios db = new DataBaseUsuarios(MainActivity.this);
                 String[] datosUsuario;
 
-                EditText etCorreo = (EditText) findViewById(R.id.etCorreoSesion);
-                EditText etPassword = (EditText) findViewById(R.id.etPasswordSesion);
+                etCorreo = (EditText) findViewById(R.id.etCorreoSesion);
+                etPassword = (EditText) findViewById(R.id.etPasswordSesion);
 
                 String correo = etCorreo.getText().toString();
                 String password = etPassword.getText().toString();
 
                 // Se verifica correo y contraseña
                 if(!correo.isEmpty()){
-                    if(!password.isEmpty()){
-                        datosUsuario = db.obtenerCorreoYContrasena(correo);
-                        if(datosUsuario != null){
-                            if(correo.equals(datosUsuario[0])){
-                                if(password.equals(datosUsuario[1])){
-                                    Intent intent = new Intent(MainActivity.this,SharedPreferentsActivity.class);
-                                    intent.putExtra("nombre",datosUsuario[2]);
-                                    intent.putExtra("correo",datosUsuario[0]);
-                                    startActivity(intent);
-                                }else{
-                                    Snackbar.make(v, "Contraseña no es correcta", Snackbar.LENGTH_LONG).show();
-                                }
+                    datosUsuario = db.obtenerCorreoYContrasena(correo);
+                    if(datosUsuario != null){
+                        // Usuario encontrado, correo y password.
+                        if(!password.isEmpty()){
+                            if(password.equals(datosUsuario[1])){
+                                Snackbar.make(v,"Inicio de sesión correcta",Snackbar.LENGTH_LONG).show();
+                                etCorreo.setText("");
+                                etPassword.setText("");
+                                Intent intent = new Intent(MainActivity.this,SharedPreferentsActivity.class);
+                                intent.putExtra("nombre",datosUsuario[2]);
+                                intent.putExtra("correo",datosUsuario[0]);
+                                startActivity(intent);
                             }else{
-                                Snackbar.make(v, "correo no es correcta", Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(v, "Contraseña no es correcta", Snackbar.LENGTH_LONG).show();
                             }
                         }else{
-                            Snackbar.make(v, "Usuario no registrado", Snackbar.LENGTH_LONG).show();
+                            Snackbar.make(v, "Contraseña no estar vacia", Snackbar.LENGTH_LONG).show();
                         }
                     }else{
-                        Snackbar.make(v, "Campo contraseña no puede estar vacio", Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(v, "Usuario no registrado", Snackbar.LENGTH_LONG).show();
                     }
                 }else{
-                    Snackbar.make(v, "Campo correo no puede estar vacio", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(v, "Correo no puede estar vacio", Snackbar.LENGTH_LONG).show();
                 }
             }
         });
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onRestart() {
+        super.onRestart();
 
-        EditText etCorreo = (EditText) findViewById(R.id.etCorreoSesion);
-        EditText etPassword = (EditText) findViewById(R.id.etPasswordSesion);
-
-        etPassword.setText("");
-        etCorreo.setText("");
-
+        etCorreo = (EditText) findViewById(R.id.etCorreoSesion);
+        etCorreo.requestFocus();
     }
-
 }

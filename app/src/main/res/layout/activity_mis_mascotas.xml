@@ -15,11 +15,21 @@
         android:textAlignment="center"
         android:layout_marginTop="40dp"/>
 
+    <TextView
+        android:id="@+id/tvNickMisMascotas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nick"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/tvMisMascotas"/>
+
     <ListView
         android:id="@+id/lvMisMascotas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvMisMascotas"
+        android:layout_below="@id/tvNickMisMascotas"
         android:layout_marginTop="40dp"
         android:scrollbars="vertical">
 
@@ -36,4 +46,5 @@
         android:visibility="gone"
         android:layout_below="@id/lvMisMascotas"
         android:layout_marginTop="50dp"/>
+
 </RelativeLayout>

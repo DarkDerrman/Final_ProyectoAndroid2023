@@ -18,18 +18,23 @@ import android.widget.TextView;
 import com.google.android.material.snackbar.Snackbar;
 
 public class SharedPreferentsActivity extends AppCompatActivity {
+    TextView tvNombre, tvCorreo;
+    EditText etSeudonimo, etEdad;
+    Button btnGuardar;
     String nombre;
     String correo;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shared_preferents);
 
-        TextView tvNombre = (TextView) findViewById(R.id.tvNombrePreferencias);
-        TextView tvCorreo = (TextView) findViewById(R.id.tvCorreoPreferencias);
-        Button btnGuardar = (Button) findViewById(R.id.btnGuardarPreferencias);
-        EditText etSeudonomio = (EditText) findViewById(R.id.etSeudonomioPreferencias);
-        EditText etEdad = (EditText) findViewById(R.id.etEdadPreferencias);
+        tvNombre = (TextView) findViewById(R.id.tvNombrePreferencias);
+        tvCorreo = (TextView) findViewById(R.id.tvCorreoPreferencias);
+        btnGuardar = (Button) findViewById(R.id.btnGuardarPreferencias);
+        etSeudonimo = (EditText) findViewById(R.id.etSeudonimoPreferencias);
+        etEdad = (EditText) findViewById(R.id.etEdadPreferencias);
 
         // Recuperacion de envio de datos simples
         Bundle datos = getIntent().getExtras();
@@ -47,33 +52,39 @@ public class SharedPreferentsActivity extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String seudonomio = etSeudonomio.toString();
-                String edad = etEdad.toString();
+                String seudonimo = etSeudonimo.getText().toString();
+                String edad = etEdad.getText().toString();
 
-                if(!seudonomio.isEmpty()){
+                if(!seudonimo.isEmpty()){
                     if(!edad.isEmpty()){
                         // Agregar datos clave-valor
                         editor.putString("nombre",nombre);
                         editor.putString("correo",correo);
-                        editor.putString("seudonimo",seudonomio);
+                        editor.putString("seudonimo",seudonimo);
                         editor.putString("edad",edad);
                         editor.commit();
-                        Snackbar.make(v,"Preferencias guardadas",Snackbar.LENGTH_LONG);
+                        Snackbar.make(v,"Preferencias guardadas",Snackbar.LENGTH_LONG).show();
 
                         // Iniciar la actividad MenuActivity
                         Intent intent = new Intent(SharedPreferentsActivity.this,MenuActivity.class);
                         startActivity(intent);
-                        etSeudonomio.setText("");
-                        etEdad.setText("");
+                        Snackbar.make(v,"Preferencias guardadas",Snackbar.LENGTH_LONG).show();
                     }else{
-                        Snackbar.make(v,"La edad no puede estar vacia",Snackbar.LENGTH_LONG);
+                        Snackbar.make(v,"La edad no puede estar vacia",Snackbar.LENGTH_LONG).show();
                     }
                 }else{
-                    Snackbar.make(v,"El seudonimo no puede estar vacio",Snackbar.LENGTH_LONG);
+                    Snackbar.make(v,"El seudonimo no puede estar vacio",Snackbar.LENGTH_LONG).show();
                 }
             }
         });
 
 
+    }
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        etSeudonimo = (EditText) findViewById(R.id.etSeudonimoPreferencias);
+        etSeudonimo.requestFocus();
     }
 }

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class MisMascotasActivity extends AppCompatActivity {
     TextView tvMensaje;
+    TextView tvNick;
     ListView lvListaMisMascotas;
     long idDueno;
     @Override
@@ -24,13 +25,20 @@ public class MisMascotasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mis_mascotas);
 
+        tvNick = (TextView) findViewById(R.id.tvNickMisMascotas);
         tvMensaje = (TextView) findViewById(R.id.tvMensajeSinMascotas);
         tvMensaje.setVisibility(View.GONE);
 
         DataBaseMascotas dbmascotas = new DataBaseMascotas(MisMascotasActivity.this);
 
         SharedPreferences myShared = getSharedPreferences("misDatos",MODE_PRIVATE);
-        String correo = myShared.getString("correo","No se encontro correo");
+        String correo = myShared.getString("correo","No se encontró correo");
+        String seudonimo = myShared.getString("seudonimo","No se encontró seudonimo");
+        String edad = myShared.getString("edad","No se encontró edad");
+
+        String nick = seudonimo + "(" + edad + ")";
+
+        tvNick.setText(nick);
 
         idDueno = dbmascotas.obtenerIdDuenoPorCorreo(correo);
 
