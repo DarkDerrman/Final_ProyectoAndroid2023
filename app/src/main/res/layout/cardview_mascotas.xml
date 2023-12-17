@@ -2,83 +2,93 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:padding="15dp"
-    android:foreground="?android:attr/selectableItemBackground"
-    cardview:cardBackgroundColor="#C5ECEB"
-    android:background="?android:attr/selectableItemBackgroundBorderless">
+    android:layout_height="220dp"
+    android:padding="15dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="210dp"
-        android:layout_height="180dp"
+        android:layout_width="230dp"
+        android:layout_height="200dp"
         cardview:cardCornerRadius="15dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        cardview:cardBackgroundColor="#49BE25"
         android:layout_gravity="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            >
-            <TextView
-                android:id="@+id/cvNombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nombre"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:padding="5dp"/>
-            <TextView
-                android:id="@+id/cvEspecie"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Especie"
-                android:textAlignment="center"
-                android:padding="5dp"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="210dp"
+            android:layout_height="180dp"
+            cardview:cardCornerRadius="15dp"
+            android:layout_gravity="center">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
-
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                >
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Raza:" />
-
-                <TextView
-                    android:id="@+id/cvRaza"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="raza "
-                    android:padding="5dp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tamaño:" />
-
-                <TextView
-                    android:id="@+id/cvTamano"
+                    android:id="@+id/cvNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tamaño"
+                    android:text="Nombre"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/cvEspecie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Especie"
+                    android:textAlignment="center"
+                    android:padding="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Raza:" />
+
+                    <TextView
+                        android:id="@+id/cvRaza"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="raza "
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tamaño:" />
+
+                    <TextView
+                        android:id="@+id/cvTamano"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tamaño"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </androidx.cardview.widget.CardView>
+
+
 
 </androidx.cardview.widget.CardView>
