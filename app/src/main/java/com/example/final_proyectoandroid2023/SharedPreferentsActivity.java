@@ -77,8 +77,6 @@ public class SharedPreferentsActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
     @Override
     protected void onRestart() {

@@ -187,9 +187,11 @@ public class RegistroMascotasActivity extends AppCompatActivity {
 
                                                     dbmascotas.agregarMascota(contentValuesMascota,idDueno);
                                                     Snackbar.make(v,"Mascota ingresada",Snackbar.LENGTH_LONG).show();
+
                                                     etNombreMascota.setText("");
                                                     etDescripcionMascota.setText("");
                                                     etRaza.setText("");
+
                                                     // Deseleccionar radioButton
                                                     deseleccionarRadioButtons(rgEspecieMascota);
                                                     deseleccionarRadioButtons(rgEdadMascota);
@@ -197,6 +199,8 @@ public class RegistroMascotasActivity extends AppCompatActivity {
                                                     deseleccionarRadioButtons(rgTamanoMascota);
                                                     deseleccionarRadioButtons(rgVacunaDiaMascota);
                                                     deseleccionarRadioButtons(rgSaludMascota);
+
+                                                    etNombreMascota.requestFocus();
 
                                                 }else{
                                                     Snackbar.make(v,"Debe chequear si esta sana la mascota",Snackbar.LENGTH_LONG).show();
