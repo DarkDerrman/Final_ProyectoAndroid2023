@@ -75,7 +75,7 @@ public class SharedPreferentsActivity extends AppCompatActivity {
                                 Snackbar.make(v,"Preferencias guardadas",Snackbar.LENGTH_LONG).show();
 
                             }else{
-                                Snackbar.make(v,"Edad debe ser mayor a 1 y menor igual a 300 años",Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(v,"Edad debe ser mayor a 1 y menor o igual a 300 años",Snackbar.LENGTH_LONG).show();
                             }
                         } else {
                             // El String no es un número entero válido.
