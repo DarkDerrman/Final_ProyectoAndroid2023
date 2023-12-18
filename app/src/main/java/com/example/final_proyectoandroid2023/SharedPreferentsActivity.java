@@ -57,18 +57,30 @@ public class SharedPreferentsActivity extends AppCompatActivity {
 
                 if(!seudonimo.isEmpty()){
                     if(!edad.isEmpty()){
-                        // Agregar datos clave-valor
-                        editor.putString("nombre",nombre);
-                        editor.putString("correo",correo);
-                        editor.putString("seudonimo",seudonimo);
-                        editor.putString("edad",edad);
-                        editor.commit();
-                        Snackbar.make(v,"Preferencias guardadas",Snackbar.LENGTH_LONG).show();
+                        if (esNumeroEntero(edad)) {
+                            int numeroEntero = Integer.parseInt(edad);
+                            // El String es un número entero válido.
+                            if(0 < numeroEntero && numeroEntero <= 300){
+                                // Agregar datos clave-valor
+                                editor.putString("nombre",nombre);
+                                editor.putString("correo",correo);
+                                editor.putString("seudonimo",seudonimo);
+                                editor.putString("edad",edad);
+                                editor.commit();
+                                Snackbar.make(v,"Preferencias guardadas",Snackbar.LENGTH_LONG).show();
 
-                        // Iniciar la actividad MenuActivity
-                        Intent intent = new Intent(SharedPreferentsActivity.this,MenuActivity.class);
-                        startActivity(intent);
-                        Snackbar.make(v,"Preferencias guardadas",Snackbar.LENGTH_LONG).show();
+                                // Iniciar la actividad MenuActivity
+                                Intent intent = new Intent(SharedPreferentsActivity.this,MenuActivity.class);
+                                startActivity(intent);
+                                Snackbar.make(v,"Preferencias guardadas",Snackbar.LENGTH_LONG).show();
+
+                            }else{
+                                Snackbar.make(v,"Edad debe ser mayor a 1 y menor igual a 300 años",Snackbar.LENGTH_LONG).show();
+                            }
+                        } else {
+                            // El String no es un número entero válido.
+                            Snackbar.make(v,"La edad ingresada no es numerica",Snackbar.LENGTH_LONG).show();
+                        }
                     }else{
                         Snackbar.make(v,"La edad no puede estar vacia",Snackbar.LENGTH_LONG).show();
                     }
@@ -77,6 +89,15 @@ public class SharedPreferentsActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    private boolean esNumeroEntero(String str) {
+        try {
+            // Intenta convertir el String a un número entero.
+            Integer.parseInt(str);
+            return true; // Si tiene éxito, es un número entero válido.
+        } catch (NumberFormatException e) {
+            return false; // Si ocurre una excepción, no es un número entero válido.
+        }
     }
     @Override
     protected void onRestart() {
