@@ -16,7 +16,6 @@
         android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/etCorreoSesion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,7 +32,6 @@
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/etPasswordSesion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -49,7 +47,6 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/btnAcceder"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -61,7 +58,6 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/btnRegistrarMain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -73,7 +69,6 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
 
